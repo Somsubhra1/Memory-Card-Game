@@ -2,11 +2,22 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 body {
     height: 100vh;
     display: flex;
-    background: #060AB2;
+    background: #6a3093; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #a044ff,
+        #6a3093
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #a044ff,
+        #6a3093
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .memory-game {
     width: 640px;
@@ -25,24 +36,42 @@ body {
     position: relative;
     transform: scale(1);
     transform-style: preserve-3d;
-    transition: transform .5s;
+    transition: transform 0.5s;
+    cursor: pointer;
 }
 .memory-card:active {
-    transform: scale(.97);
-    transition: transform .2s
+    transform: scale(0.97);
+    transition: transform 0.2s;
 }
 .memory-card.flip {
     transform: rotateY(180deg);
 }
-.front-face, .back-face {
+.front-face,
+.back-face {
     width: 100%;
     height: 100%;
     position: absolute;
     padding: 20px;
     border-radius: 5px;
-    background: #1c7ccc;
     backface-visibility: hidden;
+    background: #ffb75e; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #ed8f03,
+        #ffb75e
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #ed8f03,
+        #ffb75e
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .front-face {
     transform: rotateY(180deg);
+}
+@media screen and (max-width: 600px) {
+    .memory-card {
+        width: 30%;
+        height: 20%;
+    }
 }

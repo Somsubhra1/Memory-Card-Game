@@ -1,15 +1,22 @@
 //Grabbing DOM Elements
 const cards = document.querySelectorAll('.memory-card');
+const restartbtn = document.querySelector('.restart-btn');
+const time_span = document.querySelector('.time');
 
 // Setting globals
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let count = 0;
+let time = 0;
+let timerVar = setInterval(timer, 1000);
 
 // Adding eventListeners to each card
 cards.forEach(card => card.addEventListener('click', flipCard));
 // Adding eventListener to window for shuffling
 window.addEventListener('load', shuffle);
+// Adding event listener to restart btn
+restartbtn.addEventListener('click', restart);
 
 // Flipping card
 function flipCard() {
@@ -35,6 +42,7 @@ function matchCard(firstCard, secondCard) {
         secondCard.removeEventListener('click', flipCard);
         firstCard.style.cursor = 'default';
         secondCard.style.cursor = 'default';
+        count++;
         reset();
     }
     else {
@@ -45,6 +53,10 @@ function matchCard(firstCard, secondCard) {
             // lockBoard = false;
             reset();
         }, 1500);        
+    }   
+    if (count === 6) {
+        restartbtn.style.display = 'block';
+        clearInterval(timerVar);
     }
 }
 
@@ -59,5 +71,38 @@ function shuffle() {
     cards.forEach(card => {
         let random = Math.floor(Math.random() * 12);
         card.style.order = random;
-    })
+    });
+}
+
+// Game restart function
+function restart() {
+    cards.forEach(card => {
+        card.classList.remove('flip');
+    });
+    restartbtn.style.display = 'none';
+    cards.forEach(card => card.addEventListener('click', flipCard));
+    count = 0;
+    time = 0;
+    shuffle();
+    reset();
+    timerVar = setInterval(timer, 1000);
+}
+
+// Timer function to update the time spent
+function timer() {
+    time++;
+    time_span.textContent = time.toString().toHHMMSS();
+}
+
+// Adding custom prototype to String for time conversion
+String.prototype.toHHMMSS = function () {
+    var sec_num = parseInt(this, 10);
+    var hours = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours < 10) { hours = "0" + hours; }
+    if (minutes < 10) { minutes = "0" + minutes; }
+    if (seconds < 10) { seconds = "0" + seconds; }
+    return hours + ':' + minutes + ':' + seconds;
 }

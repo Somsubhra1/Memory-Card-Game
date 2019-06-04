@@ -17,62 +17,71 @@
   </head>
   
   <body>
-    <section class="memory-game container">
-      <div class="memory-card" data-name="nestjs">
-        <img src="images/nestjs.svg" alt="Aurelia badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="nestjs">
-        <img src="images/nestjs.svg" alt="Aurelia badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="angular">
-        <img src="images/angular.svg" alt="Angular badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="angular">
-        <img src="images/angular.svg" alt="Angular badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="messenger">
-        <img src="images/messenger.svg" alt="messenger badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="messenger">
-        <img src="images/messenger.svg" alt="messenger badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="nodemon">
-        <img src="images/nodemon.svg" alt="nodemon badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="nodemon">
-        <img src="images/nodemon.svg" alt="nodemon badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="react">
-        <img src="images/react.svg" alt="React badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="react">
-        <img src="images/react.svg" alt="React badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="python">
-        <img src="images/python.svg" alt="python badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
-      <div class="memory-card" data-name="python">
-        <img src="images/python.svg" alt="python badge" class="front-face">
-        <img src="images/question.png" alt="question mark" class="back-face">
-      </div>
+    <button class="btn btn-success btn-lg restart-btn">Restart</button>
+    <div class="timer">
+      Time: <span class="time">00:00:00</span>
+    </div>
+    <div class="game">
+      <section class="memory-game container">
+        <div class="memory-card" data-name="nestjs">
+          <img src="images/nestjs.svg" alt="Aurelia badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="nestjs">
+          <img src="images/nestjs.svg" alt="Aurelia badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="angular">
+          <img src="images/angular.svg" alt="Angular badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="angular">
+          <img src="images/angular.svg" alt="Angular badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="messenger">
+          <img src="images/messenger.svg" alt="messenger badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="messenger">
+          <img src="images/messenger.svg" alt="messenger badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="nodemon">
+          <img src="images/nodemon.svg" alt="nodemon badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="nodemon">
+          <img src="images/nodemon.svg" alt="nodemon badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="react">
+          <img src="images/react.svg" alt="React badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="react">
+          <img src="images/react.svg" alt="React badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="python">
+          <img src="images/python.svg" alt="python badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
+        <div class="memory-card" data-name="python">
+          <img src="images/python.svg" alt="python badge" class="front-face">
+          <img src="images/question.png" alt="question mark" class="back-face">
+        </div>
 
-    </section>      
+      </section>
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- MomentJS -->
+    <script src="http://momentjs.com/downloads/moment.js"></script>
 
     <!-- Custom JS Script -->
     <script src="js/script.js"></script>

@@ -6,7 +6,6 @@
 }
 body {
     height: 100vh;
-    display: flex;
     background: #6a3093; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to right,
@@ -18,6 +17,25 @@ body {
         #a044ff,
         #6a3093
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.game {
+    display: flex;
+    margin: 20px;
+}
+.restart-btn{
+    display: flex;
+    margin: 30px auto;
+    display: none;
+}
+.timer {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    color: #fff;
+    font-size: 3em;
+}
+.time {
+    margin-left: 10px;
 }
 .memory-game {
     width: 640px;

@@ -1,7 +1,14 @@
-//Grabbing DOM Elements
+// Grabbing DOM Elements
 const cards = document.querySelectorAll('.memory-card');
 const restartbtn = document.querySelector('.restart-btn');
 const time_span = document.querySelector('.time');
+const alert_div = document.querySelector('.alert');
+const time_alert = document.querySelector('.alert-time');
+
+// Setting localStorage for first time user
+if (!localStorage.getItem('memoryRecord')) {
+    localStorage.setItem('memoryRecord', Number.MAX_SAFE_INTEGER.toString());
+}
 
 // Setting globals
 let hasFlippedCard = false;
@@ -15,7 +22,7 @@ let timerVar = setInterval(timer, 1000);
 cards.forEach(card => card.addEventListener('click', flipCard));
 // Adding eventListener to window for shuffling
 window.addEventListener('load', shuffle);
-// Adding event listener to restart btn
+// Adding eventListener to restart btn
 restartbtn.addEventListener('click', restart);
 
 // Flipping card
@@ -57,6 +64,7 @@ function matchCard(firstCard, secondCard) {
     if (count === 6) {
         restartbtn.style.display = 'block';
         clearInterval(timerVar);
+        checkRecord();        
     }
 }
 
@@ -105,4 +113,16 @@ String.prototype.toHHMMSS = function () {
     if (minutes < 10) { minutes = "0" + minutes; }
     if (seconds < 10) { seconds = "0" + seconds; }
     return hours + ':' + minutes + ':' + seconds;
+}
+
+// Function to check localstorage for time records
+function checkRecord() {
+    if (time < parseInt(localStorage.getItem('memoryRecord'))) {
+        localStorage.setItem('memoryRecord', time.toString());
+        time_alert.textContent = time.toString().toHHMMSS();
+        alert_div.style.display = 'block';
+        setTimeout(() => {
+            alert_div.style.display = 'none';            
+        }, 3000);
+    }
 }

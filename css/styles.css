@@ -22,6 +22,9 @@ body {
     display: flex;
     margin: 20px;
 }
+.alert {
+    display: none;
+}
 .restart-btn{
     display: flex;
     margin: 30px auto;
